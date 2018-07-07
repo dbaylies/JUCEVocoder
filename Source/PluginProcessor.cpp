@@ -17,7 +17,7 @@ VocoderProcessor::VocoderProcessor()
     
     mySynth.clearVoices();
     
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 7; i++)
     {
         mySynth.addVoice (new SynthVoice());
     }
@@ -150,7 +150,7 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 	// TODO: add gates for both MIDI and audio inputs, disallowing any vocoding if either stream is silent
 	//		 bandlimit saw synth to get rid of aliasing (will have to use the user-chosen sampling rate to determine cut-off frequency)
 	//       somehow obtain lower latency?? Smaller FFT size with better windowing? Different vocoding technique altogether?
-	//       replace vectors with std::vector or juce::HeapBlock; This may avoid placing large vectors on the stack, and instead dynamically place them in the heap
+	//       replace arrays with std::vector or juce::HeapBlock; This may avoid placing large vectors on the stack, and instead dynamically place them in the heap
 
 	ScopedNoDenormals noDenormals;
 	auto totalNumInputChannels = getTotalNumInputChannels();
@@ -185,7 +185,7 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 	// Probably not necessary - but ensures that no original input audio makes it out
 	buffer.clear();
 
-	// Compute Vocoded result while enough input samples are available
+	// Compute vocoded result while enough input samples are available
 	while (midiInputQueue.size() >= fftSize/2)
 	{
 		// Start timer
@@ -212,8 +212,20 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 		zeromem(fftMIDIOut, sizeof(fftMIDIOut));
 		memcpy(fftMIDIOut, fftMIDITemp, fftSize * sizeof(float));
 
+		float inputAudioRMSAmplitude = calculateRMSAmplitudeOfBlock(fftAudioOut);
+
 		float* vocoderOutput = vocode(fftAudioOut, fftMIDIOut);
 
+		float ouputAudioRMSAmplitude = calculateRMSAmplitudeOfBlock(vocoderOutput);
+
+		
+		// Scale vocoder output using ratio of input and output rms values
+		float rmsCorrection = inputAudioRMSAmplitude / ouputAudioRMSAmplitude;
+		for (int i = 0; i < fftSize; ++i)
+		{
+			vocoderOutput[i] *= rmsCorrection;
+		}
+		
 		// Write half block to output queue
 		for (int i = 0; i < (fftSize / 2); i++)
 		{
@@ -255,6 +267,25 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 		}
 	}
 		
+
+}
+
+// Make function more general - don't rely on fftSize variable
+float VocoderProcessor::calculateRMSAmplitudeOfBlock(float* audioArray)
+{
+	float sumOfSquares = 0;
+
+	// Use range-based for loop instead
+	for (int i = 0; i < fftSize; ++i)
+	{
+		sumOfSquares += audioArray[i] * audioArray[i];
+	}
+
+	float mean = sumOfSquares / fftSize;
+
+	float rms = sqrt(mean);
+
+	return rms;
 
 }
 

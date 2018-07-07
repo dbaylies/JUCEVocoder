@@ -38,6 +38,8 @@ public:
 
     void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
 
+	float calculateRMSAmplitudeOfBlock(float* audioArray);
+
 	float* vocode(float* modulator, float* carrier);
 
 	void smoothSpectrum();

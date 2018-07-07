@@ -13,17 +13,13 @@ VocoderEditor::VocoderEditor (VocoderProcessor& p)
 	sawWaveButton.setButtonText("Saw Wave");
 
 	addAndMakeVisible(noiseButton);
-	noiseButton.setButtonText("Noise");
+	noiseButton.setButtonText("NoisyBoy");
 
 	squareWaveButton.addListener(this);
 	sawWaveButton.addListener(this);
 	noiseButton.addListener(this);
 
-
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
     setSize (400, 300);
-
 
 }
 

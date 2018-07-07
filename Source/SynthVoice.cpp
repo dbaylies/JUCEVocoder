@@ -29,6 +29,7 @@ bool SynthVoice::canPlaySound(SynthesiserSound * sound)
 void SynthVoice::startNote(int midiNoteNumber, float velocity, SynthesiserSound *sound, int currentPitchWheelPosition)
 {
 	env1.trigger = 1;
+	// velocity is between 0.0 and 1.0
 	level = velocity;
 	frequency = MidiMessage::getMidiNoteInHertz(midiNoteNumber);
 }
