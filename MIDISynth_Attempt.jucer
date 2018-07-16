@@ -3,7 +3,13 @@
 <JUCERPROJECT id="BvLZtA" name="Vocoder - Version 6 (GUI)" projectType="audioplug"
               jucerVersion="5.3.2" pluginCharacteristicsValue="pluginWantsMidiIn">
   <MAINGROUP id="AhRHDG" name="Vocoder - Version 6 (GUI)">
+    <GROUP id="{354E8B64-6F5F-C534-175D-B89237E3F086}" name="New Group"/>
     <GROUP id="{17C8CF73-4E77-D17E-D4AC-08515ED16B1F}" name="Source">
+      <FILE id="YHgfq3" name="Noise.png" compile="0" resource="1" file="Images/Noise.png"/>
+      <FILE id="AjNdJc" name="Square.png" compile="0" resource="1" file="Images/Square.png"/>
+      <FILE id="SzLqwR" name="Saw.png" compile="0" resource="1" file="Images/Saw.png"/>
+      <FILE id="usl0zz" name="ChooseYourWeapon.png" compile="0" resource="1"
+            file="Images/ChooseYourWeapon.png"/>
       <GROUP id="{B254ABB0-F962-ACC5-57B7-A099D7DC74AD}" name="Maximilian">
         <GROUP id="{34338CCC-99D8-F02D-7C41-BF111A6DB425}" name="libs">
           <FILE id="QiRmFx" name="fft.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/fft.cpp"/>

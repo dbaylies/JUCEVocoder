@@ -85,7 +85,7 @@ void SynthVoice::renderNextBlock(AudioBuffer< float > &outputBuffer, int startSa
 	env1.setAttack(200);
 	env1.setDecay(500);
 	env1.setSustain(0.8);
-	env1.setRelease(15);
+	env1.setRelease(30);
 
 	for (int sample = 0; sample < numSamples; ++sample)
 	{

@@ -25,9 +25,16 @@ private:
     // access the processor object that created it.
     VocoderProcessor& processor;
 
-	TextButton squareWaveButton;
-	TextButton sawWaveButton;
-	TextButton noiseButton;
+	ImageButton squareWaveButton;
+	ImageButton sawWaveButton;
+	ImageButton noiseButton;
+
+	Image chooseYourWeapon;
+	Image sawPic;
+	Image squarePic;
+	Image noisePic;
+
+	Colour picColor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VocoderEditor)
 };
