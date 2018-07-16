@@ -100,6 +100,9 @@ private:
 	double sinenv[fftSize];
 	// OLA output
 	float sendOut;
+	//Timer variables
+	bool timerFlag = true;
+	std::chrono::steady_clock::time_point started;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VocoderProcessor)

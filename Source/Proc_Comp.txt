@@ -100,8 +100,6 @@ void VocoderProcessor::changeProgramName (int index, const String& newName)
 void VocoderProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     ignoreUnused(samplesPerBlock);
-	// Perhaps use this to inform the host of your plug-in's latency
-	//setLatencySamples(960);
     lastSampleRate = sampleRate;
     mySynth.setCurrentPlaybackSampleRate(lastSampleRate);
 
@@ -153,12 +151,6 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 	//		 bandlimit saw synth to get rid of aliasing (will have to use the user-chosen sampling rate to determine cut-off frequency)
 	//       somehow obtain lower latency?? Smaller FFT size with better windowing? Different vocoding technique altogether?
 	//       replace arrays with std::vector or juce::HeapBlock; This may avoid placing large vectors on the stack, and instead dynamically place them in the heap
-	/*
-	if (timerFlag) {
-		started = std::chrono::high_resolution_clock::now(); // Start timer
-		timerFlag = false;
-	}
-	*/
 
 	ScopedNoDenormals noDenormals;
 	auto totalNumInputChannels = getTotalNumInputChannels();
@@ -187,7 +179,7 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 	for (int sample = 0; sample < numSamples; ++sample)
 	{
 		audioInputQueue.push(audioChannelData[sample]);
-		midiInputQueue.push(midiChannelData[sample]);
+		midiInputQueue.push(midiChannelData[sample] / mySynth.getNumVoices());
 	}
 
 	// Probably not necessary - but ensures that no original input audio makes it out
@@ -196,6 +188,8 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 	// Compute vocoded result while enough input samples are available
 	while (midiInputQueue.size() >= fftSize/2)
 	{
+		// Start timer
+		auto started = std::chrono::high_resolution_clock::now();
 
 		// Copy input samples into FFT processing buffer, moving half an FFT block at a time for overlap-add
 		for (int i = 0; i < (fftSize / 2); i++)
@@ -222,19 +216,14 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 
 		float* vocoderOutput = vocode(fftAudioOut, fftMIDIOut);
 
-		float outputAudioRMSAmplitude = calculateRMSAmplitudeOfBlock(vocoderOutput);
-		
-		// prevent division by 0
-		if (outputAudioRMSAmplitude > 0)
-		{
-			// Scale vocoder output using ratio of input and output rms values
-			float rmsCorrection = inputAudioRMSAmplitude / outputAudioRMSAmplitude;
-			for (int i = 0; i < fftSize; ++i)
-			{
-				vocoderOutput[i] *= (rmsCorrection * 0.7);
+		float ouputAudioRMSAmplitude = calculateRMSAmplitudeOfBlock(vocoderOutput);
 
-				// There is still occasionally clipping - perhaps add a soft limiter
-			}
+		
+		// Scale vocoder output using ratio of input and output rms values
+		float rmsCorrection = inputAudioRMSAmplitude / ouputAudioRMSAmplitude;
+		for (int i = 0; i < fftSize; ++i)
+		{
+			vocoderOutput[i] *= rmsCorrection;
 		}
 		
 		// Write half block to output queue
@@ -248,6 +237,13 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 		// store output in buffer for next block (for OLA)
 		// Maybe only need to copy half the buffer here - the half that will overlap?
 		memcpy(outStore, vocoderOutput, fftSize * sizeof(float));
+
+		// Calculate time passed and display in VS17 output
+		auto done = std::chrono::high_resolution_clock::now();
+		int64_t diffTime = std::chrono::duration_cast<std::chrono::milliseconds>(done - started).count();
+		//char str[256];
+		//sprintf_s(str, "This Vocode block took %" PRId64 " milliseconds to calculate.\n", diffTime);
+		//OutputDebugString(str);
 
 	}
 
@@ -269,18 +265,6 @@ void VocoderProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& mid
 					fftOutputQueue.pop();
 			}
 		}
-		// Calculate time passed and display in VS17 output
-		/*
-		if (!timerFlag)
-		{
-			auto done = std::chrono::high_resolution_clock::now();
-			int64_t diffTime = std::chrono::duration_cast<std::chrono::milliseconds>(done - started).count();
-			char str[256];
-			sprintf_s(str, "This Vocode block took %" PRId64 " milliseconds to calculate.\n", diffTime);
-			OutputDebugString(str);
-			timerFlag = true;
-		}
-		*/
 	}
 		
 

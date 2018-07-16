@@ -38,8 +38,9 @@ void SynthVoice::startNote(int midiNoteNumber, float velocity, SynthesiserSound 
 
 void SynthVoice::stopNote(float velocity, bool allowTailOff)
 {
+	
 	env1.trigger = 0;
-	allowTailOff = true;
+	allowTailOff = false;
 	if (velocity == 0)
 		clearCurrentNote();
 
@@ -84,16 +85,16 @@ void SynthVoice::renderNextBlock(AudioBuffer< float > &outputBuffer, int startSa
 	env1.setAttack(200);
 	env1.setDecay(500);
 	env1.setSustain(0.8);
-	env1.setRelease(200);
+	env1.setRelease(15);
 
 	for (int sample = 0; sample < numSamples; ++sample)
 	{
 		switch (waveShape) {
 			case square: 
-				theWave = osc1.square(frequency);
+				theWave = osc1.square(frequency/2);
 				break;
 			case saw: 
-				// Would like to use bandlimited sawn() but it throws an exception
+				// Would like to use badlimited sawn() but it throws an exception
 				theWave = osc1.saw(frequency);
 				break;
 			case noise:

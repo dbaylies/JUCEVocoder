@@ -13,13 +13,13 @@ VocoderEditor::VocoderEditor (VocoderProcessor& p)
 	sawWaveButton.setButtonText("Saw Wave");
 
 	addAndMakeVisible(noiseButton);
-	noiseButton.setButtonText("NoisyBoy");
+	noiseButton.setButtonText("Noise");
 
 	squareWaveButton.addListener(this);
 	sawWaveButton.addListener(this);
 	noiseButton.addListener(this);
 
-    setSize (400, 300);
+    setSize (600, 450);
 
 }
 
@@ -39,9 +39,9 @@ void VocoderEditor::paint (Graphics& g)
 
 void VocoderEditor::resized()
 {
-	squareWaveButton.setBounds(10, 10, getWidth() - 20, 40);
-	sawWaveButton.setBounds(10, 60, getWidth() - 20, 40);
-	noiseButton.setBounds(10, 110, getWidth() - 20, 40);
+	squareWaveButton.setBounds(10, 10, getWidth() - 20, 60);
+	sawWaveButton.setBounds(10, 80, getWidth() - 20, 60);
+	noiseButton.setBounds(10, 150, getWidth() - 20, 60);
 }
 
 void VocoderEditor::buttonClicked(Button* button)
