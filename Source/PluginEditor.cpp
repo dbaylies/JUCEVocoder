@@ -6,27 +6,36 @@
 VocoderEditor::VocoderEditor (VocoderProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
+	// Initialize colour
 	picColor.fromRGB(0, 0, 0);
 
+	// Load in images
 	chooseYourWeapon = ImageCache::getFromMemory(BinaryData::ChooseYourWeapon_png, BinaryData::ChooseYourWeapon_pngSize);
 	sawPic = ImageCache::getFromMemory(BinaryData::Saw_png, BinaryData::Saw_pngSize);
 	squarePic = ImageCache::getFromMemory(BinaryData::Square_png, BinaryData::Square_pngSize);
 	noisePic = ImageCache::getFromMemory(BinaryData::Noise_png, BinaryData::Noise_pngSize);
+	sawOver = ImageCache::getFromMemory(BinaryData::SawOver_png, BinaryData::SawOver_pngSize);
+	squareOver = ImageCache::getFromMemory(BinaryData::SquareOver_png, BinaryData::SquareOver_pngSize);
+	noiseOver = ImageCache::getFromMemory(BinaryData::NoiseOver_png, BinaryData::NoiseOver_pngSize);
+	sawDown = ImageCache::getFromMemory(BinaryData::SawDown_png, BinaryData::SawDown_pngSize);
+	squareDown = ImageCache::getFromMemory(BinaryData::SquareDown_png, BinaryData::SquareDown_pngSize);
+	noiseDown = ImageCache::getFromMemory(BinaryData::NoiseDown_png, BinaryData::NoiseDown_pngSize);
 
+
+	squareWaveButton.setImages(false, true, true, squarePic, 1.0f, picColor, squareOver, 1.0f, picColor, squareDown, 1.0f, picColor);
 	addAndMakeVisible(squareWaveButton);
-	squareWaveButton.setImages(false, true, true, squarePic, 1.0f, picColor, squarePic, 1.0f, picColor, squarePic, 1.0f, picColor);
 
+	sawWaveButton.setImages(false, true, true, sawPic, 1.0f, picColor, sawOver, 1.0f, picColor, sawDown, 1.0f, picColor);
 	addAndMakeVisible(sawWaveButton);
-	sawWaveButton.setImages(false, true, true, sawPic, 1.0f, picColor, sawPic, 1.0f, picColor, sawPic, 1.0f, picColor);
 
+	noiseButton.setImages(false, true, true, noisePic, 1.0f, picColor, noiseOver, 1.0f, picColor, noiseDown, 1.0f, picColor);
 	addAndMakeVisible(noiseButton);
-	noiseButton.setImages(false, true, true, noisePic, 1.0f, picColor, noisePic, 1.0f, picColor, noisePic, 1.0f, picColor);
 
 	squareWaveButton.addListener(this);
 	sawWaveButton.addListener(this);
 	noiseButton.addListener(this);
 
-    setSize (495, 450);
+    setSize (534, 321);
 }
 
 VocoderEditor::~VocoderEditor()
@@ -45,9 +54,9 @@ void VocoderEditor::paint (Graphics& g)
 
 void VocoderEditor::resized()
 {
-	squareWaveButton.setBounds(10, 286, (getWidth() / 3) - 20, getHeight() - 296);
-	sawWaveButton.setBounds(30 + ((getWidth() / 3) - 20), 286, (getWidth() / 3) - 20, getHeight() - 296);
-	noiseButton.setBounds(50 + 2*(((getWidth() / 3) - 20)), 286, (getWidth() / 3) - 20, getHeight() - 296);
+	squareWaveButton.setBounds(10, 216, (getWidth() / 3) - 20, getHeight() - 233);
+	sawWaveButton.setBounds(30 + ((getWidth() / 3) - 20), 216, (getWidth() / 3) - 20, getHeight() - 233);
+	noiseButton.setBounds(50 + 2*(((getWidth() / 3) - 20)), 216, (getWidth() / 3) - 20, getHeight() - 233);
 }
 
 void VocoderEditor::buttonClicked(Button* button)

@@ -33,6 +33,12 @@ private:
 	Image sawPic;
 	Image squarePic;
 	Image noisePic;
+	Image sawOver;
+	Image squareOver;
+	Image noiseOver;
+	Image sawDown;
+	Image squareDown;
+	Image noiseDown;
 
 	Colour picColor;
 
