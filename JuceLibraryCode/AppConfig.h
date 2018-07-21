@@ -343,10 +343,10 @@
  #define JucePlugin_Enable_IAA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "Vocoder - Version 6 (GUI)"
+ #define JucePlugin_Name                   "JUCEVocoder"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Vocoder - Version 6 (GUI)"
+ #define JucePlugin_Desc                   "JUCEVocoder"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "yourcompany"
@@ -403,16 +403,16 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         VocoderVersion6GUIAU
+ #define JucePlugin_AUExportPrefix         JUCEVocoderAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "VocoderVersion6GUIAU"
+ #define JucePlugin_AUExportPrefixQuoted   "JUCEVocoderAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.yourcompany.VocoderVersion6GUI
+ #define JucePlugin_CFBundleIdentifier     com.yourcompany.JUCEVocoder
 #endif
 #ifndef  JucePlugin_RTASCategory
  #define JucePlugin_RTASCategory           0
@@ -430,7 +430,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.yourcompany.VocoderVersion6GUI
+ #define JucePlugin_AAXIdentifier          com.yourcompany.JUCEVocoder
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -454,5 +454,5 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "yourcompany: Vocoder - Version 6 (GUI)"
+ #define JucePlugin_IAAName                "yourcompany: JUCEVocoder"
 #endif
