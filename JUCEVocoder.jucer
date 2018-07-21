@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="BvLZtA" name="Vocoder - Version 6 (GUI)" projectType="audioplug"
-              jucerVersion="5.3.2" pluginCharacteristicsValue="pluginWantsMidiIn">
-  <MAINGROUP id="AhRHDG" name="Vocoder - Version 6 (GUI)">
+<JUCERPROJECT id="BvLZtA" name="JUCEVocoder" projectType="audioplug" jucerVersion="5.3.2"
+              pluginCharacteristicsValue="pluginWantsMidiIn">
+  <MAINGROUP id="AhRHDG" name="JUCEVocoder">
     <GROUP id="{354E8B64-6F5F-C534-175D-B89237E3F086}" name="New Group"/>
     <GROUP id="{17C8CF73-4E77-D17E-D4AC-08515ED16B1F}" name="Source">
       <GROUP id="{CC3DB80D-AB35-F441-0B4D-7F9C57C72178}" name="Images">
