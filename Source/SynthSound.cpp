@@ -15,6 +15,7 @@ Author:  dbayl
 
 bool SynthSound::appliesToNote(int midiNoteNumber)
 {
+	// Test Change
 	return true;
 }
 
