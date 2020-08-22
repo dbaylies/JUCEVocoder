@@ -1,59 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="BvLZtA" name="JUCEVocoder" projectType="audioplug" jucerVersion="5.3.2"
+<JUCERPROJECT id="BvLZtA" name="JUCEVocoder" projectType="audioplug" jucerVersion="5.4.7"
               pluginCharacteristicsValue="pluginWantsMidiIn">
   <MAINGROUP id="AhRHDG" name="JUCEVocoder">
-    <GROUP id="{354E8B64-6F5F-C534-175D-B89237E3F086}" name="New Group"/>
     <GROUP id="{17C8CF73-4E77-D17E-D4AC-08515ED16B1F}" name="Source">
-      <GROUP id="{CC3DB80D-AB35-F441-0B4D-7F9C57C72178}" name="Images">
-        <FILE id="DR36qj" name="ButtonTemplate.png" compile="0" resource="1"
-              file="Images/ButtonTemplate.png"/>
-        <FILE id="xOOQzS" name="ChooseYourWeapon.png" compile="0" resource="1"
-              file="Images/ChooseYourWeapon.png"/>
-        <FILE id="p5sUKR" name="Noise.png" compile="0" resource="1" file="Images/Noise.png"/>
-        <FILE id="DbRXd2" name="NoiseDown.png" compile="0" resource="1" file="Images/NoiseDown.png"/>
-        <FILE id="L0v7B1" name="NoiseOver.png" compile="0" resource="1" file="Images/NoiseOver.png"/>
-        <FILE id="snnBFS" name="Saw.png" compile="0" resource="1" file="Images/Saw.png"/>
-        <FILE id="A3sybv" name="SawDown.png" compile="0" resource="1" file="Images/SawDown.png"/>
-        <FILE id="uWwRll" name="SawOver.png" compile="0" resource="1" file="Images/SawOver.png"/>
-        <FILE id="Y2rtbs" name="Square.png" compile="0" resource="1" file="Images/Square.png"/>
-        <FILE id="lVnlKe" name="SquareDown.png" compile="0" resource="1" file="Images/SquareDown.png"/>
-        <FILE id="SkpW6P" name="SquareOver.png" compile="0" resource="1" file="Images/SquareOver.png"/>
-      </GROUP>
-      <GROUP id="{B254ABB0-F962-ACC5-57B7-A099D7DC74AD}" name="Maximilian">
-        <GROUP id="{34338CCC-99D8-F02D-7C41-BF111A6DB425}" name="libs">
-          <FILE id="QiRmFx" name="fft.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/fft.cpp"/>
-          <FILE id="fFFyHL" name="fft.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/fft.h"/>
-          <FILE id="RiE84E" name="maxiAtoms.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiAtoms.cpp"/>
-          <FILE id="znUIGa" name="maxiAtoms.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiAtoms.h"/>
-          <FILE id="s1lUYP" name="maxiBark.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiBark.cpp"/>
-          <FILE id="tCGt8k" name="maxiBark.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiBark.h"/>
-          <FILE id="JN3QH5" name="maxiFFT.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiFFT.cpp"/>
-          <FILE id="S2aISd" name="maxiFFT.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiFFT.h"/>
-          <FILE id="NCzejh" name="maxiGrains.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiGrains.cpp"/>
-          <FILE id="fYHl7y" name="maxiGrains.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiGrains.h"/>
-          <FILE id="uAri5Z" name="maxim.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/maxim.h"/>
-          <FILE id="H6LkHz" name="maxiMFCC.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiMFCC.cpp"/>
-          <FILE id="Z8kxnC" name="maxiMFCC.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/maxiMFCC.h"/>
-          <FILE id="NFLBOC" name="sineTable.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/libs/sineTable.h"/>
+      <GROUP id="{3C95B877-154A-9B75-2B75-A3E817F9A757}" name="ExternalSDKS">
+        <GROUP id="{EEAB9A35-6977-8E1F-120F-CD7F825259BE}" name="Maximilian">
+          <GROUP id="{F792B2D7-646B-D21B-7E68-1B37818EAE88}" name="src">
+            <GROUP id="{7DCACFC4-525B-EAFD-D89F-18421AB32DC7}" name="libs">
+              <FILE id="fxFwZC" name="fft.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/fft.cpp"/>
+              <FILE id="USvKoA" name="fft.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/fft.h"/>
+              <FILE id="QqaG95" name="maxiAtoms.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiAtoms.cpp"/>
+              <FILE id="WnZ9Ud" name="maxiAtoms.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiAtoms.h"/>
+              <FILE id="iJLJSL" name="maxiBark.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiBark.cpp"/>
+              <FILE id="hy6la4" name="maxiBark.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiBark.h"/>
+              <FILE id="Az9hdW" name="maxiConvolve.cpp" compile="1" resource="0"
+                    file="Source/ExternalSDKs/Maximilian/src/libs/maxiConvolve.cpp"/>
+              <FILE id="qh9URm" name="maxiConvolve.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiConvolve.h"/>
+              <FILE id="UpQ7SR" name="maxiFFT.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiFFT.cpp"/>
+              <FILE id="Rus2vA" name="maxiFFT.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiFFT.h"/>
+              <FILE id="NPe7DM" name="maxiGrains.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiGrains.cpp"/>
+              <FILE id="ZibfwL" name="maxiGrains.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiGrains.h"/>
+              <FILE id="D1xuzd" name="maxim.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxim.h"/>
+              <FILE id="utBCkh" name="maxiMFCC.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiMFCC.cpp"/>
+              <FILE id="ZaPzoz" name="maxiMFCC.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiMFCC.h"/>
+              <FILE id="mYECzB" name="maxiReverb.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiReverb.cpp"/>
+              <FILE id="OaAZj0" name="maxiReverb.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiReverb.h"/>
+              <FILE id="ChAyPF" name="maxiSynths.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiSynths.cpp"/>
+              <FILE id="mGNu5k" name="maxiSynths.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/maxiSynths.h"/>
+              <FILE id="LMzaBq" name="sineTable.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/sineTable.h"/>
+              <FILE id="Z5SQoU" name="stb_vorbis.c" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/stb_vorbis.c"/>
+              <FILE id="PFKYSA" name="stb_vorbis.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/libs/stb_vorbis.h"/>
+            </GROUP>
+            <FILE id="G97E23" name="maximilian.cpp" compile="1" resource="0" file="Source/ExternalSDKs/Maximilian/src/maximilian.cpp"/>
+            <FILE id="JWUCTH" name="maximilian.embind.cpp" compile="1" resource="0"
+                  file="Source/ExternalSDKs/Maximilian/src/maximilian.embind.cpp"/>
+            <FILE id="gWWG4N" name="maximilian.h" compile="0" resource="0" file="Source/ExternalSDKs/Maximilian/src/maximilian.h"/>
+          </GROUP>
         </GROUP>
-        <FILE id="LUekFS" name="main.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/main.cpp"/>
-        <FILE id="Qh1zEA" name="maximilian.cpp" compile="1" resource="0" file="../../../../../Libraries/Maximilian/maximilian.cpp"/>
-        <FILE id="jzQw2e" name="maximilian.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/maximilian.h"/>
-        <FILE id="v1rFE8" name="stb_vorbis.c" compile="1" resource="0" file="../../../../../Libraries/Maximilian/stb_vorbis.c"/>
-        <FILE id="Ztlzqe" name="stb_vorbis.h" compile="0" resource="0" file="../../../../../Libraries/Maximilian/stb_vorbis.h"/>
       </GROUP>
-      <FILE id="aHY5b7" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="Source/PluginProcessor.cpp"/>
-      <FILE id="oOGCeG" name="PluginProcessor.h" compile="0" resource="0"
-            file="Source/PluginProcessor.h"/>
-      <FILE id="PvQIN0" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="RmsyRm" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="joA2bM" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-      <FILE id="fr6AU5" name="SynthSound.cpp" compile="1" resource="0" file="Source/SynthSound.cpp"/>
-      <FILE id="UPeO7z" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
-      <FILE id="ioxBqV" name="SynthVoice.cpp" compile="1" resource="0" file="Source/SynthVoice.cpp"/>
-      <FILE id="gVieeT" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
+      <FILE id="k7HcLi" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="hcl0rY" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="pKUWT8" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="YYyYdb" name="Proc_Comp.txt" compile="0" resource="1" file="Source/Proc_Comp.txt"/>
+      <FILE id="eaw532" name="SynthSound.cpp" compile="1" resource="0" file="Source/SynthSound.cpp"/>
+      <FILE id="YXmbU5" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
+      <FILE id="LMtqQx" name="SynthVoice.cpp" compile="1" resource="0" file="Source/SynthVoice.cpp"/>
+      <FILE id="X0noZb" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -103,6 +100,7 @@
   </MODULES>
   <LIVE_SETTINGS>
     <WINDOWS buildEnabled="0"/>
+    <OSX/>
   </LIVE_SETTINGS>
   <JUCEOPTIONS/>
 </JUCERPROJECT>

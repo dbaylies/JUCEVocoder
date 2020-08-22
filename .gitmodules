@@ -1,3 +1,6 @@
 [submodule "Source/ExternalSDKs/Maximilian"]
 	path = Source/ExternalSDKs/Maximilian
 	url = https://github.com/micknoise/Maximilian.git
+[submodule "Source/ExternalSDKs/JUCE"]
+	path = Source/ExternalSDKs/JUCE
+	url = https://github.com/juce-framework/JUCE.git
