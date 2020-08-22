@@ -1,0 +1,3 @@
+[submodule "Source/ExternalSDKs/Maximilian"]
+	path = Source/ExternalSDKs/Maximilian
+	url = https://github.com/micknoise/Maximilian.git
